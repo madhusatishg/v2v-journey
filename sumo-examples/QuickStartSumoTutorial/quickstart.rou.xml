@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-02-16T16:13:21.018595+00:00 by Eclipse SUMO netedit 1.25.0
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vType id="CarA" length="5.00" minGap="1.50" maxSpeed="50.00" accel="3.0" decel="6.0" sigma="0.5"/>
+    <vType id="CarB" length="7.50" minGap="1.50" maxSpeed="50.00" accel="2.0" decel="6.0" sigma="0.5"/>
+    <vType id="CarC" length="5.00" minGap="1.50" maxSpeed="40.00" accel="1.0" decel="5.0" sigma="0.5"/>
+    <vType id="CarD" length="7.50" minGap="1.50" maxSpeed="30.00" accel="1.0" decel="5.0" sigma="0.5"/>
+    <!-- Routes -->
+    <route id="route01" edges="D2 L2 L12 L10 L7 D7"/>
+    <route id="route02" edges="D2 L2 L12 L15 L18 L5 D5"/>
+    <route id="route03" edges="D2 L2 L12 L15 L13 L3 D3"/>
+    <route id="route04" edges="D4 L4 L14 L18 L5 D5"/>
+    <route id="route05" edges="D4 L4 L14 L16 L10 L7 D7"/>
+    <route id="route06" edges="D4 L4 L14 L16 L11 L1 D1"/>
+    <route id="route07" edges="D6 L6 L17 L13 L3 D3"/>
+    <route id="route08" edges="D6 L6 L17 L16 L11 L1 D1"/>
+    <route id="route09" edges="D6 L6 L17 L16 L10 L7 D7"/>
+    <route id="route10" edges="D8 L8 L9 L11 L1 D1"/>
+    <route id="route11" edges="D8 L8 L9 L15 L13 L3 D3"/>
+    <route id="route12" edges="D8 L8 L9 L15 L18 L5 D5"/>
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <trip id="t_0" depart="0.00" departSpeed="10.00" from="L16" to="L16"/>
+    <flow id="flow_A1" type="CarA" begin="54000.00" end="56000.00" number="120" route="route01"/>
+    <flow id="flow_A2" type="CarA" begin="54000.00" end="56000.00" number="120" route="route02"/>
+    <flow id="flow_A3" type="CarA" begin="54000.00" end="56000.00" number="80" route="route03"/>
+    <flow id="flow_B1" type="CarB" begin="54000.00" end="56000.00" number="90" route="route05"/>
+    <flow id="flow_B2" type="CarB" begin="54000.00" end="56000.00" number="60" route="route06"/>
+    <flow id="flow_C1" type="CarC" begin="54000.00" end="56000.00" number="40" route="route09"/>
+    <flow id="flow_D1" type="CarD" begin="54000.00" end="56000.00" number="30" route="route12"/>
+</routes>

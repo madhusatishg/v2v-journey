@@ -2,8 +2,4 @@ venv/
 __pycache__/
 *.pyc
 *.log
-*.xml
-*.sumocfg
-*.net.xml
-*.rou.xml
-*.add.xml
+
