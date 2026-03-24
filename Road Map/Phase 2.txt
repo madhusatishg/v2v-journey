@@ -1,0 +1,116 @@
+
+# 🧪 EXPERIMENT 6: Reinforcement Learning (ADVANCED)
+
+## 🎯 Goal
+
+Let system learn optimal policy automatically
+
+## ⚙️ RL Setup
+
+### State:
+
+* traffic density
+* signal phase
+* vehicle distance
+
+### Action:
+
+* switch / don’t switch
+
+### Reward:
+
+* minimize waiting time
+* prioritize emergency vehicles
+
+## 🧠 Activities
+
+1. Implement Q-learning
+2. Define reward function
+3. Train agent over multiple episodes
+
+## 📊 Metrics
+
+* cumulative reward
+* traffic efficiency improvement
+
+## ✅ Success Criteria
+
+* Learns better policy than supervised model
+
+---
+
+# 🧪 EXPERIMENT 7: V2I & V2V Simulation
+
+## 🎯 Goal
+
+Simulate communication-based traffic system
+
+## ⚙️ Add Communication Layer
+
+### V2I:
+
+* Vehicle sends:
+
+  * speed
+  * distance
+  * urgency
+
+### V2V:
+
+* Emergency vehicle broadcasts presence
+
+## 🧠 Activities
+
+1. Simulate message passing in Python
+2. Modify decisions based on shared data
+
+## ✅ Success Criteria
+
+* Faster response time
+* Reduced congestion
+
+---
+
+# 📊 FINAL EVALUATION
+
+## Compare ALL:
+
+* Baseline (no control)
+* Rule-based
+* Improved rule-based
+* ML model
+* RL model
+
+## 📈 Final Outputs
+
+* Graphs (waiting time, delay)
+* Tables (performance comparison)
+* Insights
+
+---
+
+# 🏁 FINAL DELIVERABLES
+
+* Clean GitHub project
+* Documented code
+* Dataset (CSV)
+* Plots & analysis
+* Optional: Research paper / report
+
+---
+
+# 🚀 EXTENSIONS (OPTIONAL)
+
+* Multi-intersection coordination
+* Multi-agent RL
+* Real-world dataset integration
+* Dashboard visualization
+
+---
+
+# 🧠 SUMMARY
+
+You will progress from:
+Rule-based → Data-driven → ML → RL → Intelligent system
+
+This is a complete end-to-end ML + simulation project.

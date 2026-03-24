@@ -1,0 +1,205 @@
+# 🚦 Intelligent Traffic Signal Control using SUMO + ML (V2I/V2V)
+
+## 🎯 Project Goal
+
+Build an intelligent traffic signal control system that prioritizes emergency vehicles and improves overall traffic efficiency using SUMO + TraCI + Machine Learning.
+
+---
+
+# 🧭 PHASE 0: Baseline System (COMPLETED ✅)
+
+### ✔ Current Status
+
+* Emergency vehicle detection implemented
+* Traffic light switching logic working
+* Phase restoration implemented
+
+### 🎯 Objective
+
+Establish baseline performance for comparison
+
+### 📊 Metrics to Record
+
+* Average waiting time
+* Emergency vehicle delay
+* Queue length
+* Throughput (vehicles/sec)
+
+---
+
+# 🧪 EXPERIMENT 1: Baseline vs Emergency Rule-Based System
+
+## 🎯 Goal
+
+Evaluate impact of your current rule-based system
+
+## ⚙️ Setup
+
+* Scenario A: Normal SUMO traffic (no control)
+* Scenario B: Your emergency priority system
+
+## 🧠 Activities
+
+1. Run simulation without your logic
+2. Run simulation with your logic
+3. Collect metrics
+
+## 📊 Data to Log
+
+* simulation time
+* vehicle ID
+* speed
+* waiting time
+* distance to signal
+* signal state
+
+## 📈 Output
+
+* Compare:
+
+  * Avg waiting time
+  * Emergency vehicle delay
+* Plot graphs
+
+## ✅ Success Criteria
+
+* Emergency delay significantly reduced
+* Minimal negative impact on other vehicles
+
+---
+
+# 🧪 EXPERIMENT 2: Improved Rule-Based System
+
+## 🎯 Goal
+
+Make system smarter without ML
+
+## ⚙️ Improvements to Add
+
+* Time-To-Intersection (TTI):
+  tti = distance / speed
+* Closest emergency vehicle selection
+* Smooth signal switching (avoid abrupt change)
+
+## 🧠 Activities
+
+1. Modify decision logic using TTI
+2. Handle multiple emergency vehicles
+3. Add yellow phase transition
+
+## 📊 Compare With
+
+* Experiment 1 results
+
+## ✅ Success Criteria
+
+* More stable behavior
+* Reduced unnecessary switching
+* Better traffic flow
+
+---
+
+# 🧪 EXPERIMENT 3: Dataset Generation (CRITICAL STEP)
+
+## 🎯 Goal
+
+Convert simulation into dataset for ML
+
+## ⚙️ Add Logging System
+
+### Features to Log:
+
+* time
+* vehicle type
+* speed
+* distance to signal
+* signal state
+* queue length
+* action taken (switch / no switch)
+
+## 🧠 Activities
+
+1. Add logging inside simulation loop
+2. Store data in CSV
+3. Run multiple simulations with variations
+
+## 📦 Output
+
+* Clean dataset for training ML models
+
+## ✅ Success Criteria
+
+* Large dataset (1000+ samples minimum)
+* Balanced data (switch vs no-switch cases)
+
+---
+
+# 🧪 EXPERIMENT 4: Supervised ML Model
+
+## 🎯 Goal
+
+Train ML model to replace rule-based logic
+
+## ⚙️ Input Features
+
+* distance
+* speed
+* signal state
+* queue length
+
+## 🎯 Output
+
+* 0 → Do nothing
+* 1 → Switch signal
+
+## 🧠 Activities
+
+1. Load dataset using pandas
+2. Split into train/test
+3. Train models:
+
+   * Random Forest
+   * Logistic Regression
+4. Evaluate accuracy
+
+## 📊 Metrics
+
+* Accuracy
+* Precision/Recall
+
+## ✅ Success Criteria
+
+* Model predicts switching decisions correctly
+
+---
+
+# 🧪 EXPERIMENT 5: ML Integration with SUMO
+
+## 🎯 Goal
+
+Use trained model in real-time simulation
+
+## ⚙️ Replace Rule Logic
+
+From:
+if distance < threshold:
+switch
+
+To:
+action = model.predict(state)
+
+## 🧠 Activities
+
+1. Load trained model
+2. Convert simulation data into model input
+3. Use prediction to control signals
+
+## 📊 Compare With
+
+* Experiment 1 & 2
+
+## ✅ Success Criteria
+
+* Equal or better performance than rule-based system
+
+---
