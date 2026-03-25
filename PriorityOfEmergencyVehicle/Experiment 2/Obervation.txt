@@ -1,0 +1,18 @@
+Results after adding time to tls < 2 sec i.e use veh speed and distnce to tls 
+Total Waiting Time: 1094.5499999995523
+Max Waiting Time: 84.0
+emergency waiting time: 80.04999999999818
+Total Vehicles: 46
+Total Emergency Vehicles: 2
+
+key Observations from base line code on : 25/3/36 
+
+🚫 Don’t just give green → ensure exit lane is free + junction is clear
+
+even if green is given, if next lane is full no use
+also third party lane vechiles if pushes or hurry to go the same lane emergency vech is intended then again we see emergency vech blocks at intersection or prev tls
+
+things to do:
+1. check next lane congestion
+2. make emergency vech better prioritization
+3. clear veh quick [later]
