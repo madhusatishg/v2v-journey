@@ -16,3 +16,78 @@ things to do:
 1. check next lane congestion
 2. make emergency vech better prioritization
 3. clear veh quick [later]
+
+
+
+**Key Observations from Baseline Code (25/03/26)**
+
+🚫 Giving green signal alone is NOT sufficient
+→ Vehicles must have a **clear exit path** to move effectively.
+
+### 🔍 Observations
+
+1. **Downstream Congestion Issue**
+
+   * Even when the signal is green, if the **next lane (lane C) is congested**, vehicles cannot move.
+   * This leads to **queue spillback**, blocking the intersection.
+
+2. **Intersection Blocking Problem**
+
+   * Vehicles enter the junction without ensuring exit availability.
+   * This results in **gridlock**, especially near traffic lights.
+
+3. **Third-Lane Interference**
+
+   * Vehicles from other lanes aggressively try to merge into the same outgoing lane.
+   * This **blocks the emergency vehicle**, even when it has priority.
+
+4. **Emergency Vehicle Delay**
+
+   * Despite signal priority, emergency vehicles get stuck:
+
+     * At the **intersection**
+     * Or at the **previous traffic light**
+
+---
+
+### 🎯 Key Insight
+
+> 🚫 Green signal ≠ Guaranteed movement
+> ✅ Green signal + Free downstream lane + Controlled merging = Effective movement
+
+---
+
+### 🛠️ Action Items (Next Steps)
+
+1. **Check Next Lane Congestion**
+
+   * Before giving green, verify if the **target lane has sufficient space**
+
+2. **Improve Emergency Vehicle Prioritization**
+
+   * Restrict competing lanes
+   * Allow emergency lane exclusive or dominant access
+
+3. **Intersection Clearance (Future Work)**
+
+   * Ensure vehicles do not enter junction unless exit is free
+   * Actively clear vehicles already inside the junction
+
+---
+
+### 🚀 Direction Forward
+
+Move from:
+
+* Rule-based signal switching
+
+To:
+
+* **State-aware traffic control system**
+
+  * Considers downstream conditions
+  * Handles multi-lane conflicts
+  * Prioritizes emergency flow intelligently
+
+
+  Observation: we dont want to be blocked at our own lane so give green at our lane to the indexs it leads 

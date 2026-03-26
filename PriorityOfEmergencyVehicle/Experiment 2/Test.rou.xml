@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-03-24T16:58:03.361094+00:00 by Eclipse SUMO netedit 1.25.0
+<!-- generated on 2026-03-26T19:30:44.659690+00:00 by Eclipse SUMO netedit 1.26.0
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
@@ -12,6 +12,6 @@
     <flow id="f_0" begin="0.00" end="3600.00" perHour="1200.00" from="Node5-6-EB" to="Node3-4-SB" via="Node2-5-NB"/>
     <flow id="f_1" begin="0.00" end="3600.00" perHour="1200.00" from="Node4-5-WB" to="Node1-2-WB" via="Node2-5-NB"/>
     <flow id="f_2" begin="0.00" end="3600.00" perHour="1200.00" from="Node1-2-EB" to="Node4-5-EB" via="Node2-5-SB"/>
+    <trip id="emergency_1" type="emergency" depart="10.00" from="Node5-6-EB" to="Node4-5-EB"/>
     <trip id="emergency_2" type="emergency" depart="10.00" from="Node2-3-WB" to="Node4-5-EB" via="Node2-5-SB"/>
-    <trip id="emergency_1" type="emergency" depart="30.00" from="Node5-6-EB" to="Node4-5-EB"/>
 </routes>

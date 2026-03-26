@@ -1,0 +1,134 @@
+Today: 26/3/2026
+
+===== EXPERIMENT RESULTS =====
+Total Waiting Time: 1200.6499999994558
+Max Waiting Time: 59.05
+emergency waiting time: 89.49999999999898
+Total Vehicles: 33
+Total Emergency Vehicles: 3
+
+
+
+I have changed from time to tls to distance to the tls as it is Effective
+
+instead of finding 'G' at the tls index in full state of signal, get the lanes from the current vehiclel and make them green and rest all red.
+this is to ensure even if emergency vehicle is not the very near to signal, vechiles ahead dosent block the current emergency vech
+this objetive is to not to get blocked in the same lane
+
+if two vechicles[emergency] reaches the same signal one reaches under threshold will be given preference to jam signal or chnage, later imm
+the signal is cleared and seocnd vech can modify the same signal
+so along with program and state also saved which vech blocking signal
+
+finally passed all emegerncy vech from network
+
+Blocker:
+even though green, vech can not got or move becase the next lane which they are suppors to go are occpied
+
+so we need to cleaer the upcoming lanes as well
+
+
+---------------------
+
+GPT refactor version:
+
+**Date:** 26/03/2026
+
+---
+
+## **Work Summary**
+
+* Switched control logic from **time-to-TLS** to **distance-to-TLS**.
+  → This proved to be more stable and effective for triggering signal changes.
+
+* Changed signal control strategy:
+  Instead of checking whether required indices are already `'G'` in the signal state,
+  → directly **constructed a new signal state**:
+
+  * Emergency vehicle lane → **Green (G)**
+  * All other lanes → **Red (r)**
+
+  This ensures:
+
+  * Dedicated movement for the emergency vehicle
+  * Reduces interference from other directions
+
+---
+
+## **Key Improvement**
+
+* Focus shifted to:
+
+  > “Prevent blocking in the same lane”
+
+* Even if the emergency vehicle is not extremely close to the signal,
+  → the system prepares the lane in advance
+  → reduces chances of vehicles ahead blocking the emergency vehicle
+
+---
+
+## **Multi-Emergency Handling**
+
+* When two emergency vehicles approach the same traffic signal:
+
+  * The vehicle within the threshold distance gets priority
+  * Signal state is modified based on that vehicle
+  * Once cleared, the next vehicle can take control
+
+* To support this:
+
+  * System stores:
+
+    * Original program
+    * Original phase
+    * **Vehicle responsible for signal override**
+
+---
+
+## **Current Outcome**
+
+* Successfully allowed **all emergency vehicles to pass through the network**
+
+---
+
+## **Observed Blocker**
+
+* Even with green signal:
+
+  * Vehicles are sometimes **unable to move forward**
+
+### Root Cause:
+
+* **Next lane (downstream lane) is occupied**
+* This creates **spillback**, blocking the intersection
+
+---
+
+## **Next Objective**
+
+> Clear not just the current lane, but also **upcoming lanes**
+
+### Required Improvements:
+
+* Detect congestion in the **next edge / lane**
+* Ensure downstream space is available before pushing traffic forward
+* Possibly:
+
+  * Move vehicles ahead faster
+  * Prevent vehicles from entering blocked intersections
+
+---
+
+## **Conclusion**
+
+The system now:
+
+* Provides **lane-level priority control**
+* Handles **multiple emergency vehicles**
+* Maintains **stable signal override and restoration**
+
+However:
+
+* It still lacks **downstream traffic management**,
+  which is necessary to fully eliminate blocking.
+
+---
