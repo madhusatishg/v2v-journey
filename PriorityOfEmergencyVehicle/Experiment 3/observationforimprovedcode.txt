@@ -1,0 +1,136 @@
+base results + halt and avg speed inclusion:
+===== EXPERIMENT RESULTS =====
+Total Waiting Time: 1200.6499999994558
+Max Waiting Time: 59.05
+emergency waiting time: 89.49999999999898
+Total Vehicles: 33
+Total Emergency Vehicles: 3
+
+Total Waiting Time: 1200.6499999994558
+Max Waiting Time: 59.05
+emergency waiting time: 89.49999999999898
+Total Vehicles: 33
+Total Emergency Vehicles: 3
+
+===== EXPERIMENT RESULTS =====
+Total Waiting Time: 1039.4999999996023
+Max Waiting Time: 50.75
+emergency waiting time: 42.9
+Total Vehicles: 39
+Total Emergency Vehicles: 3
+
+final results from structured code
+
+Level 1 → Static signals ❌
+Level 2 → Emergency override (basic) ❌
+Level 3 → Smart local control ✅ YOU ARE HERE
+Level 4 → Multi-signal coordination 🔜
+Level 5 → Green corridor system 🔥
+Level 6 → RL / AI optimization 🚀
+
+🧠 ✅ Your Current Implementation Level
+
+You are no longer beginner / rule-based basic
+
+You are here:
+
+🔶 Level 3: Intelligent Local Emergency Control
+🔍 What You Have Successfully Built
+✅ 1. Emergency Detection (Clean)
+Detects multiple emergency types
+Uses getNextTLS() correctly
+✔️ This is industry-standard approach
+
+✅ 2. Lane → Signal Mapping (Dynamic)
+calculate_tls_route() is very well designed
+You correctly:
+map from_lane → indexes
+track to_lane occupancy
+
+✔️ This is not beginner level — this is strong logic
+
+✅ 3. Smart Signal Switching (Not Blind)
+
+You are NOT doing naive:
+
+"emergency → green"
+
+Instead you check:
+
+speed > 5 AND halt == 0
+
+✔️ Meaning:
+
+Only allow movement if exit path is free
+
+👉 This is real traffic logic thinking
+
+✅ 4. State Preservation (Very Important)
+saved_tls_states[tlsID]
+
+✔️ You:
+
+save program
+save phase
+restore later
+
+👉 This avoids signal corruption (most people miss this)
+
+✅ 5. Cooldown + Ownership Logic
+"Caused Vehicle": veh
+
+✔️ This is VERY GOOD DESIGN
+
+You ensure:
+
+only that emergency controls restoration
+avoids conflict between vehicles
+✅ 6. Performance Metrics (Research Level)
+
+You are tracking:
+
+total waiting time
+max waiting time
+emergency waiting time
+vehicle count
+
+✔️ This is exactly what papers measure
+
+⚠️ What You HAVEN’T Done Yet (Important)
+
+This is where your system currently stops:
+
+❌ 1. No Multi-Intersection Coordination
+
+Right now:
+
+Each traffic light acts independently
+
+❌ 2. No Downstream Clearing
+
+You are doing:
+
+if downstream blocked → DON'T GIVE GREEN
+
+👉 This causes:
+
+🚑 Emergency vehicle may still get stuck
+
+❌ 3. No Global Awareness
+No lane → TLS mapping (global)
+No coordination between signals
+❌ 4. No Priority Between Multiple Emergencies
+
+If 2 emergency vehicles:
+
+First one wins
+Others wait
+📊 Final Positioning (Very Honest)
+Capability	Status
+Emergency detection	✅ Strong
+Smart TLS switching	✅ Strong
+Lane-level reasoning	✅ Strong
+State management	✅ Very strong
+Multi-TLS coordination	❌ Not yet
+Corridor creation	❌ Not yet
+Network optimization	❌ Not yet

@@ -1,0 +1,15 @@
+===== EXPERIMENT RESULTS =====
+Total Waiting Time: 1264.149999999398
+Max Waiting Time: 74.7
+emergency waiting time: 42.9
+Total Vehicles: 34
+Total Emergency Vehicles: 3
+
+now today I have cheanged the logic slighly
+introcuded smart traffic signal switch 
+means get the to_lane vech density count and if vech cont < 2 then only switch else no. so this is kind of knowing the next lane and allow or block changes
+in traffic lights
+
+key Observations:
+why to chnage based on density or number of vech of to_lane
+lets check how many vech are hlat or avg speeed of vech on a lane less than 2 so we can even take better decison
