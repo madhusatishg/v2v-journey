@@ -1,0 +1,36 @@
+The Base Code Implementationn Results:
+
+# ===== EXPERIMENT RESULTS =====
+# Total Waiting Time: 1200.6499999994558
+# Max Waiting Time: 59.05
+# emergency waiting time: 89.49999999999898
+# Total Vehicles: 33
+# Total Emergency Vehicles: 3
+
+
+Approach Followed:
+
+Check for each emegerncy vehcile Level 1 congestion
+if free 
+Check Level 2 Congestion
+
+If Both Level 1 and Level 2 Congestions are Free, then chnage signal
+
+If level 1 is congested and Level 2 is free, idenitfied scope for Changed tls of Level 2 to free Level 1
+
+same time if L1 is Free and Level 2 is congested , this is where we see trouble, or if after signal is chnaged at level 1 but level 2 is blocked just after that. this creates a jam
+or waste of signal blockage for emegerncy vhecile 
+so we should check probale green time of next signal to block current L1 signal
+
+The Improved Code Implementationn Results:
+
+I have worked on if L1 is congested but signal blocked instead of waiting long, free L2 signal if possible and push the L1 traffic its already green.
+this avoids unecessay blockage of L1 Congestion after signal tamperred  
+
+
+# ===== EXPERIMENT RESULTS =====
+# Total Waiting Time: 1034.5999999996068
+# Max Waiting Time: 55.85
+# emergency waiting time: 1.75
+# Total Vehicles: 41
+# Total Emergency Vehicles: 3
