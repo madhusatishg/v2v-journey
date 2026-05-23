@@ -169,23 +169,6 @@ while traci.simulation.getTime() < SIMULATION_TIME:
                      
                     else:   
                         None
-                    # NtlsID = lane_downstream_map[G_L1_Congested_lanes[0]][0]["tls"]
-                    # suggested_state = generate_new_state(tlsID, G_L2_Free_lanes, G_L1_Congested_lanes[0])
-                    # print(f"{vehID} is suggesting {tlsID} to swicth to {suggested_state}")
-                    # print(f"{vehID} has GL2 free lanes {G_L2_Free_lanes} and congested lanes {G_L2_Congested_lanes}")
-                    # if emergency_lane_graph[vehID]["distance_to_tls"] < emg_distance_threshold and NtlsID not in saved_tls_states.keys() and suggested_state is not None:
-                    #     CurrentPhase = traci.trafficlight.getPhase(NtlsID)
-                    #     saved_tls_states[NtlsID] = {
-                    #         "program": traci.trafficlight.getProgram(NtlsID),
-                    #         "phase": CurrentPhase,
-                    #         "Cool Down": 3,
-                    #         "Caused Vehicle": vehID,
-                    #         "Actual Cause TLS": emergency_lane_graph[vehID]["approaching_tls"]
-                    #     }
-                    #     traci.trafficlight.setRedYellowGreenState(NtlsID,suggested_state)
-                    #     print(f"Emergency Vehicle ID: {vehID}")
-                    #     print(f"Switching traffic light L1 cong and L2 free{NtlsID} to phase {suggested_state} due to vehicle {vehID}")
-                    #     break
 
             else:
                 
@@ -199,8 +182,23 @@ while traci.simulation.getTime() < SIMULATION_TIME:
                     if L2_Cong:
                         G_L2_Congestion = True
                 if G_L2_Congestion:
+                    
                         print(f"for {vehID} we found L1 Free and L2 Congested")
-                        None
+                        suggested_state = generate_new_state(emergency_lane_graph[vehID]["approaching_tls"], G_L1_Free_lanes, emergency_lane_graph[vehID]["current_lane"])
+                        #print(f"{emergency_lane_graph[vehID]["distance_to_tls"]} < {emg_distance_threshold} and {emergency_lane_graph[vehID]["approaching_tls"]} not in {saved_tls_states.keys()} and {suggested_state} is not None")
+                        if emergency_lane_graph[vehID]["distance_to_tls"] < emg_distance_threshold and emergency_lane_graph[vehID]["approaching_tls"] not in saved_tls_states.keys() and suggested_state is not None:
+                            CurrentPhase = traci.trafficlight.getPhase(emergency_lane_graph[vehID]["approaching_tls"])
+                            saved_tls_states[emergency_lane_graph[vehID]["approaching_tls"]] = {
+                                "program": traci.trafficlight.getProgram(emergency_lane_graph[vehID]["approaching_tls"]),
+                                "phase": CurrentPhase,
+                                "Cool Down": 3,
+                                "Caused Vehicle": vehID,
+                                "Actual Cause TLS": emergency_lane_graph[vehID]["approaching_tls"]
+                            }
+                            traci.trafficlight.setRedYellowGreenState(emergency_lane_graph[vehID]["approaching_tls"],suggested_state)
+                            print(f"Emergency Vehicle ID: {vehID}")
+                            print(f"Switching traffic light L1 L2 both free {emergency_lane_graph[vehID]['approaching_tls']} to phase {suggested_state} due to vehicle {vehID}")
+                            break
                 else:
                     print(f"for {vehID} we found L1 Free and L2 Free")
                     #before suggesting the state , we need to check how long the L2 tls stays green for now only thinking no code written
@@ -298,3 +296,9 @@ traci.close()
 
 
 
+# ===== EXPERIMENT RESULTS =====
+# Total Waiting Time: 1034.5999999996068
+# Max Waiting Time: 55.85
+# emergency waiting time: 1.75
+# Total Vehicles: 41
+# Total Emergency Vehicles: 3

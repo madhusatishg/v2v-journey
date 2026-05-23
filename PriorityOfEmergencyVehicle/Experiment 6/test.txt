@@ -1,0 +1,26 @@
+lane_upstream_map: 
+{'Node1-2-WB_0':
+            [{'tls': 'Node2', 'from_lane': 'Node2-3-WB_0'},
+            {'tls': 'Node2', 'from_lane': 'Node2-5-NB_0'}],
+'Node2-5-SB_0':
+         [{'tls': 'Node2', 'from_lane': 'Node2-3-WB_0'}, 
+       {'tls': 'Node2', 'from_lane': 'Node1-2-EB_0'}], 
+  'Node2-3-EB_0': 
+  [{'tls': 'Node2', 'from_lane': 'Node2-5-NB_0'},
+   {'tls': 'Node2', 'from_lane': 'Node1-2-EB_0'}], 
+'Node5-6-WB_0': 
+[{'tls': 'Node5', 'from_lane': 'Node2-5-SB_0'},
+    {'tls': 'Node5', 'from_lane': 'Node4-5-WB_0'}],
+ 'Node4-5-EB_0':
+  [{'tls': 'Node5', 'from_lane': 'Node2-5-SB_0'},
+   {'tls': 'Node5', 'from_lane': 'Node5-6-EB_0'}], 
+'Node2-5-NB_0': 
+[{'tls': 'Node5', 'from_lane': 'Node4-5-WB_0'},
+ {'tls': 'Node5', 'from_lane': 'Node5-6-EB_0'}]}
+lane_downstream_map: {'Node2-3-WB_0': [{'tls': 'Node2', 'to_lane': 'Node1-2-WB_0'},
+ {'tls': 'Node2', 'to_lane': 'Node2-5-SB_0'}], 'Node2-5-NB_0': [{'tls': 'Node2', 'to_lane': 'Node2-3-EB_0'}, 
+ {'tls': 'Node2', 'to_lane': 'Node1-2-WB_0'}], 'Node1-2-EB_0': [{'tls': 'Node2', 'to_lane': 'Node2-5-SB_0'}, 
+ {'tls': 'Node2', 'to_lane': 'Node2-3-EB_0'}], 'Node2-5-SB_0': [{'tls': 'Node5', 'to_lane': 'Node5-6-WB_0'}, 
+ {'tls': 'Node5', 'to_lane': 'Node4-5-EB_0'}], 'Node4-5-WB_0': [{'tls': 'Node5', 'to_lane': 'Node2-5-NB_0'}, 
+ {'tls': 'Node5', 'to_lane': 'Node5-6-WB_0'}], 'Node5-6-EB_0': [{'tls': 'Node5', 'to_lane': 'Node4-5-EB_0'}, 
+ {'tls': 'Node5', 'to_lane': 'Node2-5-NB_0'}]}
